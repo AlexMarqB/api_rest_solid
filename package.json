@@ -1,0 +1,25 @@
+{
+  "name": "api_rest_solid",
+  "version": "1.0.0",
+  "description": "Aplicativo (gympass) para pessoa fazer check-in em academias\r Ela paga X valor mensal e libera acesso a Y academias\r Com planos diferentes",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node build/server.js",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsup src --out-dir build",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.5.4",
+    "tsup": "^8.2.4",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "fastify": "^4.28.1"
+  }
+}
