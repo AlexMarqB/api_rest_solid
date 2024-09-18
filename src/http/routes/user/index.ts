@@ -1,5 +1,5 @@
 
-import { createUserController } from "@/http/controllers/user/createUserController";
+import { createUserController } from "@/http/controllers/user/create-user-controller";
 import { FastifyInstance } from "fastify";
 
 export async function userRoutes(app: FastifyInstance) {

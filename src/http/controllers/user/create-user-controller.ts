@@ -1,5 +1,6 @@
 import { PrismaUsersRepository } from "@/repositories/prisma/prisma-users-repository"
-import { CreateUserUseCase } from "@/use-cases/user/createUserUseCase"
+import { UserAlreadyExistsError } from "@/use-cases/errors/user-already-exists-error"
+import { CreateUserUseCase } from "@/use-cases/user/create-user-usecase"
 import { FastifyReply, FastifyRequest } from "fastify"
 import { z } from "zod"
 
@@ -18,7 +19,11 @@ export async function createUserController(req: FastifyRequest, rep: FastifyRepl
 
         await createUserUseCase.execute({ name, email, password })
     } catch (error) {
-        return rep.status(409).send()
+        if(error instanceof UserAlreadyExistsError) {
+            return rep.status(409).send({ message: error.message })
+        }
+
+        return rep.status(500).send() // TODO: fix me
     }
 
     return rep.status(201).send()
