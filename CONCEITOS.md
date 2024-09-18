@@ -44,3 +44,12 @@ atualizamos o database_url do nosso .env com o user, password e database definid
 npx prisma migrate dev => Ele busca todas as tabelas e campos alterados no schema.prisma que não foi refletido no banco de dados e gera uma migration
 
 npx prisma studio => abre uma interface no navegador para navegar pelas tabelas do bd
+
+O container criado está na nossa maquina, porém se outro dev for mexer no bd em outra maquina precisaria fazer todo o processo de instalação do bd
+então em desenvolvimento podemos utilizar o docker-compose.yml para ditar os containers necessário que a aplicação precisa para funcionar
+
+docker compose up -d => -d = não mostra os logs no terminal
+
+docker compose down => para e apaga todos os containers
+
+docker compose stop => para os containers sem deletar
