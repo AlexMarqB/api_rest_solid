@@ -69,9 +69,14 @@ npm i bcryptjs
 npm i @types/bcryptjs -D
 
 ## Camadas da aplicação =>
-
 Pode ser que alguma funcionalidade não será através de uma rota http, existem lógicas que não podem depender da rota ou do controller
 
-# Controller => Função que lida com a entrada de dados e devolve uma resposta (fastify, express, nest)
+# Solid =>
 
-#  
+D - Dependency Inversion Principle
+
+# controller => Função que lida com a entrada de dados e devolve uma resposta (fastify, express, nest)
+
+# useCase / services => Função que lida com a lógica e aplicação de regra de negócio independente de como a requisição foi feita (HTTP ou não)
+
+# respository => Abstração do cliente utilizado para finalizar a requisição com o banco, por exemplo hoje eu uso o prisma se amanhã eu for alterar, só preciso atualizar os repositories
