@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -14,9 +8,42 @@ datasource db {
 }
 
 model User {
-  id    String @id @default(uuid())
-  name  String
-  email String @unique
+  id            String   @id @default(uuid())
+  name          String
+  email         String   @unique
+  password_hash String
+  created_at    DateTime @default(now())
 
-  @@map("tb_user") // muda o nome da tabela que seria "User" para o deseajado
+  // não gera nada no bd, é apenas para o prisma compreender o relacionamento
+  checkIns CheckIn[] // o nome definido aqui é como vamos acessar esses campos/relacionamentos no typescript
+
+  @@map("tb_user") // muda o nome da tabela que seria "User" para o desejado
+}
+
+model CheckIn {
+  id           String    @id @default(uuid())
+  created_at   DateTime  @default(now())
+  validated_at DateTime? // Além de utilizarmos o boolean para saber apenas se foi validado, podemos utilizar a data para saber se foi e quando foi validado
+
+  user    User   @relation(fields: [user_id], references: [id])
+  user_id String
+
+  gym    Gym    @relation(fields: [gym_id], references: [id])
+  gym_id String
+
+  @@map("tb_checkin")
+}
+
+model Gym {
+  id          String  @id @default(uuid())
+  title       String
+  description String?
+  phone       String?
+  latitude    Decimal
+  longitude   Decimal
+
+  // não gera nada no bd, é apenas para o prisma compreender o relacionamento
+  checkIns CheckIn[]
+
+  @@map("tb_gym")
 }

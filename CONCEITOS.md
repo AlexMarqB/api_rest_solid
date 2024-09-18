@@ -53,3 +53,13 @@ docker compose up -d => -d = não mostra os logs no terminal
 docker compose down => para e apaga todos os containers
 
 docker compose stop => para os containers sem deletar
+
+
+## Segurança => 
+
+Não iremos salvar a senha diretamente no banco de dados iremos utilizar um hash
+
+Por que um hash ao inves da criptografia?
+
+A criptografia vai e volta, vc criptografa e descriptografa
+já o hash não ele apenas vai não tem como desfazer
