@@ -19,11 +19,8 @@ export async function createUserController(req: FastifyRequest, rep: FastifyRepl
 
         await createUserUseCase.execute({ name, email, password })
     } catch (error) {
-        if(error instanceof UserAlreadyExistsError) {
-            return rep.status(409).send({ message: error.message })
-        }
 
-        return rep.status(500).send() // TODO: fix me
+        throw error
     }
 
     return rep.status(201).send()

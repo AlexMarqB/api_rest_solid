@@ -80,3 +80,6 @@ D - Dependency Inversion Principle
 # useCase / services => Função que lida com a lógica e aplicação de regra de negócio independente de como a requisição foi feita (HTTP ou não)
 
 # respository => Abstração do cliente utilizado para finalizar a requisição com o banco, por exemplo hoje eu uso o prisma se amanhã eu for alterar, só preciso atualizar os repositories
+
+## Trativa de erros =>
+O fastify tem uma trativa padrão para erros porém não é perfeito então iremos desenvolver um tratamento de erro global
