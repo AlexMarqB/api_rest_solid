@@ -32,7 +32,7 @@ Principios do SOLID
 - [ ] Deve ser possivel X
 - [ ] Must be able to X 
 
-- [ ] Deve ser possivel se cadastrar;
+- [X] Deve ser possivel se cadastrar;
 - [ ] Deve ser possivel se autenticar;
 - [ ] Deve ser possivel obter o perfil de um usuário logado/autenticado;
 - [ ] Deve ser possivel obter o numero de check-ins realizados pelo usuário logado;
@@ -46,7 +46,7 @@ Principios do SOLID
 ## RNs ( Regras de negócio )
 - Determina as condições para cada requisito funcional
 
-- [ ] O usuário não deve poder se cadastrar com um e-mail duplicado;
+- [X] O usuário não deve poder se cadastrar com um e-mail duplicado;
 - [ ] O usuário não pode fazer 2 check-ins no mesmo dia;
 - [ ] O usuário não pode fazer check-in se não estiver perto (100m) da academia;
 - [ ] O check-in só pode ser validado até 20 minutos após criado;
@@ -57,7 +57,7 @@ Principios do SOLID
 - Não partem do cliente, são requisitos tecnicos e mais a fundo do que funcionalidades
 - BD, estrategia de cache, paginação, autenticação
 
-- [ ] A senha do usuário precisa estar criptografada;
-- [ ] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL;
+- [X] A senha do usuário precisa estar criptografada;
+- [X] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL;
 - [ ] Todas as listas de dados precisam estar páginados em 20 itens por página;
 - [ ] O usuário deve ser identificado por um JWT (JSON Web Token);

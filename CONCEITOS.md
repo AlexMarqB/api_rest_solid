@@ -83,3 +83,9 @@ D - Dependency Inversion Principle
 
 ## Trativa de erros =>
 O fastify tem uma trativa padrão para erros porém não é perfeito então iremos desenvolver um tratamento de erro global
+
+## Testes 
+
+Em média cada regra de negócio deve se tornar um teste
+
+# Unitários => 
