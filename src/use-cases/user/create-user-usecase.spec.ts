@@ -47,7 +47,7 @@ describe('Create User UseCase', () => {
             password: "123456"
         })
 
-        expect(() => createUserUseCase.execute({
+        await expect(() => createUserUseCase.execute({
             name: "John Doe",
             email,
             password: "123456"

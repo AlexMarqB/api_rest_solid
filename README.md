@@ -12,6 +12,20 @@ Configure as variaveis de ambiente
 
 - npm run dev
 
+# Como executar os testes da aplicação => 
+
+Para testar apenas 1 vez
+
+- npm run test
+
+Para testar continuamente
+
+- npm run test:watch
+
+Para verificar o quanto os testes cobriram a aplicação
+
+- npm run test:coverage
+
 # App
 
 # Gympass style app => 
