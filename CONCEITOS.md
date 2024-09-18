@@ -63,3 +63,15 @@ Por que um hash ao inves da criptografia?
 
 A criptografia vai e volta, vc criptografa e descriptografa
 já o hash não ele apenas vai não tem como desfazer
+
+npm i bcryptjs
+
+npm i @types/bcryptjs -D
+
+## Camadas da aplicação =>
+
+Pode ser que alguma funcionalidade não será através de uma rota http, existem lógicas que não podem depender da rota ou do controller
+
+# Controller => Função que lida com a entrada de dados e devolve uma resposta (fastify, express, nest)
+
+#  
