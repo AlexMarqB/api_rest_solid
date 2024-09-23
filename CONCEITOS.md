@@ -102,3 +102,16 @@ Evitamos retornar erros com detalhes da autenticação para evitar invasões
 ## Factory Pattern
 
 É uma fabrica de criações comuns com varias dependencias
+
+## TDD => Test-Driven-Development
+
+TDD diz que desenvolver o teste antes da implementação a validação tende a ser correta porque o teste te auxilia a chegar ao que deseja
+
+Etapas: 
+Red -> Causo o erro no teste
+Green -> Vou desenvolver o minimo possivel para o teste funcionar
+Refactor -> Refatoro
+
+# Mocking
+
+O vitest fornece otimas funcionalidades de mocking para data

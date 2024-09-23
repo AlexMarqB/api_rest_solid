@@ -1,7 +1,17 @@
 import { UsersRepository } from "@/repositories/users-repository";
-import { AuthenticateUseCaseRequest, AuthenticateUseCaseResponse } from "./req-rep.types";
 import { InvalidCredentialsError } from "../errors/invalid-credentials-error";
 import { _bcrypt } from "@/lib/bcrypt";
+import { User } from "@prisma/client";
+
+export interface AuthenticateUseCaseRequest {
+    email: string;
+    password: string;
+}
+
+export interface AuthenticateUseCaseResponse {
+    user: User;
+}
+
 
 export class AuthenticateUserUseCase {
     constructor(
