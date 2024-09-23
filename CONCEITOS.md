@@ -88,4 +88,9 @@ O fastify tem uma trativa padrão para erros porém não é perfeito então irem
 
 Em média cada regra de negócio deve se tornar um teste
 
-# Unitários => 
+## Autenticação
+
+Iremos sempre iniciar a lógica de autenticação ou qualquer lógica pelo caso de uso, porque ele é o nivel mais baixo da aplicação e já permite
+testes unitários
+
+Evitamos retornar erros com detalhes da autenticação para evitar invasões

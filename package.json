@@ -10,8 +10,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest --coverage",
-    "test:ui": "vitest --ui",
-    "start": "cd ../.. sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 && sudo systemctl stop postgresql && systemctl --user start docker-desktop"
+    "test:ui": "vitest --ui"
   },
   "keywords": [],
   "author": "",

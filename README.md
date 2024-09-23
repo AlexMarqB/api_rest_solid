@@ -2,10 +2,6 @@
 
 - npm install
 
-Se você utiliza o Ubuntu >= 24.04 LTS e/ou tem o postgresql instalado execute para iniciar o docker
-- npm run start
-!!! Se só tiver 1 das condições (ou ubuntu 24 ou postgresql) acesse o package.json e altere o script !!!
-
 Configure as variaveis de ambiente
 
 - docker compose up -d

@@ -1,7 +1,7 @@
 import { UsersRepository } from "@/repositories/users-repository"
-import bcrypt from "bcryptjs"
 import { UserAlreadyExistsError } from "../errors/user-already-exists-error"
 import { User } from "@prisma/client"
+import { _bcrypt } from "@/lib/bcrypt"
 
 interface CreateUserUseCaseRequest {
     name: string
@@ -17,7 +17,7 @@ export class CreateUserUseCase {
     constructor(private usersRepository: UsersRepository) {}
 
     async execute({name, email, password}: CreateUserUseCaseRequest): Promise<CreateUserUseCaseResponse> {
-        const password_hash = await bcrypt.hash(password, 6)  //o valor mais utilizado são de 6 rounds
+        const password_hash = await _bcrypt.hash(password, 6)  //o valor mais utilizado são de 6 rounds
 
         const userWithSameEmail = await this.usersRepository.findByEmail(email)
 
