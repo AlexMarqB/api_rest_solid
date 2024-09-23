@@ -5,6 +5,7 @@ import { AuthenticateUserUseCase } from "./authenticate-user-usecase";
 import { InvalidCredentialsError } from "../errors/invalid-credentials-error";
 
 let usersRepository: InMemoryUsersRepository;
+//System under test
 let sut : AuthenticateUserUseCase;
 
 describe("Authenticate User UseCase", () => {

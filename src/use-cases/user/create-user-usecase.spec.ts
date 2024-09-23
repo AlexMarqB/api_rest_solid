@@ -5,6 +5,7 @@ import { UserAlreadyExistsError } from '../errors/user-already-exists-error'
 import { _bcrypt } from '@/lib/bcrypt'
 
 let usersRepository: InMemoryUsersRepository
+//System under test
 let sut: CreateUserUseCase
 
 describe('Create User UseCase', () => {
