@@ -90,6 +90,8 @@ Em média cada regra de negócio deve se tornar um teste
 
 É sim valido testar a aplicação apenas com os testes em código sem nem rodar a aplicação
 
+Cada teste deve ser executado em um ambiente totalmente limpo e sem registros anteriores
+
 ## Autenticação
 
 Iremos sempre iniciar a lógica de autenticação ou qualquer lógica pelo caso de uso, porque ele é o nivel mais baixo da aplicação e já permite

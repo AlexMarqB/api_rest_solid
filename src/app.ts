@@ -3,6 +3,7 @@ import { userRoutes } from "./http/routes/user";
 import { ZodError } from "zod";
 import { UserAlreadyExistsError } from "./use-cases/errors/user-already-exists-error";
 import { env } from "./env";
+import { InvalidCredentialsError } from "./use-cases/errors/invalid-credentials-error";
 
 const app = fastify()
 
@@ -15,6 +16,10 @@ app.setErrorHandler(async (error, _, rep) => {
 
     if(error instanceof UserAlreadyExistsError) {
         return rep.status(409).send({ message: error.message })
+    }
+
+    if (error instanceof InvalidCredentialsError) {
+        return rep.status(400).send({ message: error.message})
     }
 
     if(env.NODE_ENV !== "production") {

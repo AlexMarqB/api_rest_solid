@@ -1,17 +1,20 @@
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-users-repository";
 import { _bcrypt } from "@/lib/bcrypt";
 import { AuthenticateUserUseCase } from "./authenticate-user-usecase";
 import { InvalidCredentialsError } from "../errors/invalid-credentials-error";
 
+let usersRepository: InMemoryUsersRepository;
+let sut : AuthenticateUserUseCase;
+
 describe("Authenticate User UseCase", () => {
 	//Unit Test
+	beforeEach(() => {
+		usersRepository = new InMemoryUsersRepository();
+		sut = new AuthenticateUserUseCase(usersRepository);
+	})
 
 	it("Should be able to auth an user", async () => {
-		const usersRepository = new InMemoryUsersRepository();
-		//system under test
-		const sut = new AuthenticateUserUseCase(usersRepository);
-
 		// Se utilizarmos o createUserUseCase iremos testar mais de 1 use case, e não devemos fazer isso então
 		// Como temos acesso ao repositorio podemos criar diretamente nele um usuário para teste
 
@@ -30,10 +33,6 @@ describe("Authenticate User UseCase", () => {
 	});
 
 	it("Should not be able to authenticate with wrong email", async () => {
-		const usersRepository = new InMemoryUsersRepository();
-		//system under test
-		const sut = new AuthenticateUserUseCase(usersRepository);
-
 		await expect(() =>
 			sut.execute({
 				email: "johndoe@example.com",
@@ -43,10 +42,6 @@ describe("Authenticate User UseCase", () => {
 	});
 
 	it("Should be able to auth an user", async () => {
-		const usersRepository = new InMemoryUsersRepository();
-		//system under test
-		const sut = new AuthenticateUserUseCase(usersRepository);
-
 		// Se utilizarmos o createUserUseCase iremos testar mais de 1 use case, e não devemos fazer isso então
 		// Como temos acesso ao repositorio podemos criar diretamente nele um usuário para teste
 
