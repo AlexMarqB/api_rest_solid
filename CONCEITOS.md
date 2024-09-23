@@ -98,3 +98,7 @@ Iremos sempre iniciar a lógica de autenticação ou qualquer lógica pelo caso 
 testes unitários
 
 Evitamos retornar erros com detalhes da autenticação para evitar invasões
+
+## Factory Pattern
+
+É uma fabrica de criações comuns com varias dependencias
