@@ -1,8 +1,8 @@
 import {describe, expect, it} from 'vitest'
 import { CreateUserUseCase } from './create-user-usecase'
-import bcrypt from 'bcryptjs'
 import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository'
 import { UserAlreadyExistsError } from '../errors/user-already-exists-error'
+import { _bcrypt } from '@/lib/bcrypt'
 
 describe('Create User UseCase', () => {
     //Unit Test
@@ -30,7 +30,7 @@ describe('Create User UseCase', () => {
             password: "123456"
         })
 
-        const isPasswordHashValid = await bcrypt.compare("123456", user.password_hash)
+        const isPasswordHashValid = await _bcrypt.compare("123456", user.password_hash)
 
         expect(isPasswordHashValid).toBe(true)
     })

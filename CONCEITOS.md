@@ -88,6 +88,8 @@ O fastify tem uma trativa padrão para erros porém não é perfeito então irem
 
 Em média cada regra de negócio deve se tornar um teste
 
+É sim valido testar a aplicação apenas com os testes em código sem nem rodar a aplicação
+
 ## Autenticação
 
 Iremos sempre iniciar a lógica de autenticação ou qualquer lógica pelo caso de uso, porque ele é o nivel mais baixo da aplicação e já permite
