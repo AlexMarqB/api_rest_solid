@@ -35,8 +35,6 @@ export class CheckInUserUseCase {
 			throw new ResourceNotFoundError();
 		}
 
-		// TODO: Calcular a distancia entre o usuario e a academia, se a distancia for maior que 100m, lançar um erro
-
 		const distance = getDistanceBetweenCoordinates(
 			{ latitude: userLatitude, longitude: userLongitude },
 			{

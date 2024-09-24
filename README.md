@@ -50,7 +50,7 @@ Principios do SOLID
 - [X] Deve ser possivel o usuário buscar academias próximas (10km);
 - [X] Deve ser possivel o usuário buscar academias pelo nome;
 - [X] Deve ser possivel o usuário realizar check-in em uma academia;
-- [ ] Deve ser possivel validar o check-in de um usuário;
+- [X] Deve ser possivel validar o check-in de um usuário;
 - [X] Deve ser possivel cadastrar uma academia;
 
 ## RNs ( Regras de negócio )
@@ -59,7 +59,7 @@ Principios do SOLID
 - [X] O usuário não deve poder se cadastrar com um e-mail duplicado;
 - [X] O usuário não pode fazer 2 check-ins no mesmo dia;
 - [X] O usuário não pode fazer check-in se não estiver perto (100m) da academia;
-- [ ] O check-in só pode ser validado até 20 minutos após criado;
+- [X] O check-in só pode ser validado até 20 minutos após criado;
 - [ ] O check-in só pode ser validado por administradores;
 - [ ] A academia só pode ser cadastrada por administradores;
 
@@ -69,5 +69,5 @@ Principios do SOLID
 
 - [X] A senha do usuário precisa estar criptografada;
 - [X] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL;
-- [ ] Todas as listas de dados precisam estar páginados em 20 itens por página;
+- [X] Todas as listas de dados precisam estar páginados em 20 itens por página;
 - [ ] O usuário deve ser identificado por um JWT (JSON Web Token);

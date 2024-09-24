@@ -1,75 +1,46 @@
-
-export class ValidateCheckInUseCase {
-
-}import { UsersRepository } from "@/repositories/users-repository";
 import { _bcrypt } from "@/lib/bcrypt";
 import { CheckIn } from "@prisma/client";
 import { CheckInsRepository } from "@/repositories/check-ins-repository";
-import { GymsRepository } from "@/repositories/gyms-repository";
 import { ResourceNotFoundError } from "../errors/resource-not-found-error";
 import { getDistanceBetweenCoordinates } from "@/utils/get-distance-between-coordinates";
 import { MaxDistanceError } from "../errors/max-distance-error";
 import { MaxNumberOfCheckInsError } from "../errors/max-number-of-check-ins";
+import dayjs from "dayjs";
+import { TimeLimitExpired } from "../errors/max-time-to-validate-error";
 
 export interface ValidateCheckInUseCaseRequest {
-	userId: string;
-	gymId: string;
-	userLatitude: number;
-	userLongitude: number;
+	checkInId: string;
 }
 
-export interface CheckInUseCaseResponse {
+export interface ValidateCheckInUseCaseResponse {
 	checkIn: CheckIn;
 }
 
 export class ValidateCheckInUseCase {
-	constructor(
-		private checkInRepository: CheckInsRepository,
-		private gymsRepository: GymsRepository
-	) {}
+	constructor(private checkInRepository: CheckInsRepository) {}
 
 	async execute({
-		userId,
-		gymId,
-		userLatitude,
-		userLongitude,
-	}: ValidateCheckInUseCaseRequest): Promise<CheckInUseCaseResponse> {
-		const gym = await this.gymsRepository.findyById(gymId);
+		checkInId,
+	}: ValidateCheckInUseCaseRequest): Promise<ValidateCheckInUseCaseResponse> {
+		const checkIn = await this.checkInRepository.findById(checkInId);
 
-		if (!gym) {
+		if (!checkIn) {
 			throw new ResourceNotFoundError();
 		}
 
-		// TODO: Calcular a distancia entre o usuario e a academia, se a distancia for maior que 100m, lançar um erro
-
-		const distance = getDistanceBetweenCoordinates(
-			{ latitude: userLatitude, longitude: userLongitude },
-			{
-				latitude: gym.latitude.toNumber(),
-				longitude: gym.longitude.toNumber(),
-			}
+		// Data atual - data de criação do check-in
+		const distanceInMinutesFromCheckInCreation = dayjs(new Date()).diff(
+			checkIn.created_at,
+			"minute"
 		);
 
-        const MAX_DISTANCE_IN_KILOMETERS = 0.1;
-        
-        if (distance > MAX_DISTANCE_IN_KILOMETERS) {
-            throw new MaxDistanceError();
-        }
-
-
-		const checkInOnSameDate = await this.checkInRepository.findByUserIdOnDate(
-			userId,
-			new Date()
-		);
-
-		if (checkInOnSameDate) {
-			throw new MaxNumberOfCheckInsError();
+		if(distanceInMinutesFromCheckInCreation > 20) {
+			throw new TimeLimitExpired();
 		}
 
-		const checkIn = await this.checkInRepository.create({
-			gym_id: gymId,
-			user_id: userId,
-		});
+		checkIn.validated_at = new Date();
+
+		await this.checkInRepository.save(checkIn);
 
 		return {
 			checkIn,
