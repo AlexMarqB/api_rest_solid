@@ -1,12 +1,12 @@
 import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
 import { _bcrypt } from '@/lib/bcrypt'
 import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-checkIns-repository'
-import { CheckInUserUseCase } from './check-in-usecase'
+import { CheckInUserUseCase } from './create-check-in-usecase'
 import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository'
 import { Decimal } from '@prisma/client/runtime/library'
 import { MaxNumberOfCheckInsError } from '../errors/max-number-of-check-ins'
 import { MaxDistanceError } from '../errors/max-distance-error'
-import { GetUserCheckInsHistoryUseCase } from './get-user-checkIns-history'
+import { GetUserCheckInsHistoryUseCase } from './get-user-checkIns-history-usecase'
 
 let checkInRepository: InMemoryCheckInsRepository
 //System under test
