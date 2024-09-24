@@ -51,7 +51,7 @@ Principios do SOLID
 - [ ] Deve ser possivel o usuário buscar academias pelo nome;
 - [X] Deve ser possivel o usuário realizar check-in em uma academia;
 - [ ] Deve ser possivel validar o check-in de um usuário;
-- [ ] Deve ser possivel cadastrar uma academia;
+- [X] Deve ser possivel cadastrar uma academia;
 
 ## RNs ( Regras de negócio )
 - Determina as condições para cada requisito funcional
