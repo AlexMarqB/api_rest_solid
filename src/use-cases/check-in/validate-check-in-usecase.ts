@@ -1,3 +1,8 @@
+
+export class ValidateCheckInUseCase {
+
+}import { UsersRepository } from "@/repositories/users-repository";
+import { _bcrypt } from "@/lib/bcrypt";
 import { CheckIn } from "@prisma/client";
 import { CheckInsRepository } from "@/repositories/check-ins-repository";
 import { GymsRepository } from "@/repositories/gyms-repository";
@@ -6,7 +11,7 @@ import { getDistanceBetweenCoordinates } from "@/utils/get-distance-between-coor
 import { MaxDistanceError } from "../errors/max-distance-error";
 import { MaxNumberOfCheckInsError } from "../errors/max-number-of-check-ins";
 
-export interface CheckInUseCaseRequest {
+export interface ValidateCheckInUseCaseRequest {
 	userId: string;
 	gymId: string;
 	userLatitude: number;
@@ -17,7 +22,7 @@ export interface CheckInUseCaseResponse {
 	checkIn: CheckIn;
 }
 
-export class CheckInUserUseCase {
+export class ValidateCheckInUseCase {
 	constructor(
 		private checkInRepository: CheckInsRepository,
 		private gymsRepository: GymsRepository
@@ -28,7 +33,7 @@ export class CheckInUserUseCase {
 		gymId,
 		userLatitude,
 		userLongitude,
-	}: CheckInUseCaseRequest): Promise<CheckInUseCaseResponse> {
+	}: ValidateCheckInUseCaseRequest): Promise<CheckInUseCaseResponse> {
 		const gym = await this.gymsRepository.findyById(gymId);
 
 		if (!gym) {

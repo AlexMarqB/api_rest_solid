@@ -1,6 +1,4 @@
-import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
-import { _bcrypt } from '@/lib/bcrypt'
-import { GetGymsUseCase } from './get-gyms-usecase'
+import { beforeEach, describe, expect, it } from 'vitest'
 import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository'
 import { GetNearbyGymsUseCase } from './get-nearby-gyms'
 

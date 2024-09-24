@@ -1,5 +1,4 @@
 import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
-import { _bcrypt } from '@/lib/bcrypt'
 import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-checkIns-repository'
 import { CheckInUserUseCase } from './create-check-in-usecase'
 import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository'
