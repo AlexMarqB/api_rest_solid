@@ -114,4 +114,5 @@ Refactor -> Refatoro
 
 # Mocking
 
-O vitest fornece otimas funcionalidades de mocking para data
+O vitest fornece otimas funcionalidades de mocking para lidar com o tipo de dado "Date" e utilizamos a lib
+dayjs para melhorar mais o tratamento e uso desses dados
