@@ -1,8 +1,8 @@
 import { UsersRepository } from "@/repositories/users-repository";
-import { InvalidCredentialsError } from "../errors/invalid-credentials-error";
+import { InvalidCredentialsError } from "../@errors/invalid-credentials-error";
 import { _bcrypt } from "@/lib/bcrypt";
 import { User } from "@prisma/client";
-import { ResourceNotFoundError } from "../errors/resource-not-found-error";
+import { ResourceNotFoundError } from "../@errors/resource-not-found-error";
 
 interface GetUserProfileUseCaseRequest {
     userId: string;

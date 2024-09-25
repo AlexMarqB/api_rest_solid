@@ -1,9 +1,9 @@
 import fastify from "fastify";
 import { userRoutes } from "./http/routes/user";
 import { ZodError } from "zod";
-import { UserAlreadyExistsError } from "./use-cases/errors/user-already-exists-error";
+import { UserAlreadyExistsError } from "./use-cases/@errors/user-already-exists-error";
 import { env } from "./env";
-import { InvalidCredentialsError } from "./use-cases/errors/invalid-credentials-error";
+import { InvalidCredentialsError } from "./use-cases/@errors/invalid-credentials-error";
 
 const app = fastify()
 

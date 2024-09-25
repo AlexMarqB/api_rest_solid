@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-users-repository";
 import { _bcrypt } from "@/lib/bcrypt";
 import { AuthenticateUserUseCase } from "./authenticate-user-usecase";
-import { InvalidCredentialsError } from "../errors/invalid-credentials-error";
+import { InvalidCredentialsError } from "../@errors/invalid-credentials-error";
 
 let usersRepository: InMemoryUsersRepository;
 //System under test

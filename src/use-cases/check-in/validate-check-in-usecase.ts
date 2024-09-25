@@ -1,12 +1,12 @@
 import { _bcrypt } from "@/lib/bcrypt";
 import { CheckIn } from "@prisma/client";
 import { CheckInsRepository } from "@/repositories/check-ins-repository";
-import { ResourceNotFoundError } from "../errors/resource-not-found-error";
+import { ResourceNotFoundError } from "../@errors/resource-not-found-error";
 import { getDistanceBetweenCoordinates } from "@/utils/get-distance-between-coordinates";
-import { MaxDistanceError } from "../errors/max-distance-error";
-import { MaxNumberOfCheckInsError } from "../errors/max-number-of-check-ins";
+import { MaxDistanceError } from "../@errors/max-distance-error";
+import { MaxNumberOfCheckInsError } from "../@errors/max-number-of-check-ins";
 import dayjs from "dayjs";
-import { TimeLimitExpired } from "../errors/max-time-to-validate-error";
+import { TimeLimitExpired } from "../@errors/max-time-to-validate-error";
 
 export interface ValidateCheckInUseCaseRequest {
 	checkInId: string;

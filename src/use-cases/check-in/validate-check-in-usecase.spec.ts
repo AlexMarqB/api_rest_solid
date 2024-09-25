@@ -1,8 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { InMemoryCheckInsRepository } from "@/repositories/in-memory/in-memory-checkIns-repository";
 import { ValidateCheckInUseCase } from "./validate-check-in-usecase";
-import { ResourceNotFoundError } from "../errors/resource-not-found-error";
-import { TimeLimitExpired } from "../errors/max-time-to-validate-error";
+import { ResourceNotFoundError } from "../@errors/resource-not-found-error";
+import { TimeLimitExpired } from "../@errors/max-time-to-validate-error";
 
 let checkInRepository: InMemoryCheckInsRepository;
 //System under test

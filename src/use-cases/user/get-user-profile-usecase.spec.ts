@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-users-repository";
 import { _bcrypt } from "@/lib/bcrypt";
 import { GetUserProfileUseCase } from "./get-user-profile-usecase";
-import { ResourceNotFoundError } from "../errors/resource-not-found-error";
+import { ResourceNotFoundError } from "../@errors/resource-not-found-error";
 
 let usersRepository: InMemoryUsersRepository;
 //System under test
