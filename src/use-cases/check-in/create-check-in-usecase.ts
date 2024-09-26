@@ -17,7 +17,7 @@ export interface CheckInUseCaseResponse {
 	checkIn: CheckIn;
 }
 
-export class CheckInUserUseCase {
+export class CreateCheckInUserUseCase {
 	constructor(
 		private checkInRepository: CheckInsRepository,
 		private gymsRepository: GymsRepository
