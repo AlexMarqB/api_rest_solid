@@ -116,3 +116,22 @@ Refactor -> Refatoro
 
 O vitest fornece otimas funcionalidades de mocking para lidar com o tipo de dado "Date" e utilizamos a lib
 dayjs para melhorar mais o tratamento e uso desses dados
+
+## Autenticação 
+
+3 estratégias comuns de autenticação
+Basic auth -> Faz com que todas as requisições exijam todas as credenciais do usuário em base64 - falta com segurança
+JSON Web Token -> Só envia os dados na rota de login e depois que validar é gerado um stateless token unico e que não pode ser modificado
+
+Caso o serviço não seja web a autenticação pode ser diferente
+
+# JWT - Hash e hash inverso / Code e decode - Foco em serviços web
+
+* stateless: não armazenado em nenhuma estrutura de persistencia de dados (bd, arquivo, variavel)
+
+Usuário faz login - email e senha -> é gerado um token stateless unico e não modificavel                              
+
+Back-end: Utiliza uma PALAVRA-CHAVE (string) pode ser qualquer coisa literalmente
+ex: askfjbsdf9sdfys8f3p03843943dasjdkasdahad
+
+Email/senha -> header.payload.sign

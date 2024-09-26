@@ -1,4 +1,4 @@
-import { makeCreateUserUseCase } from "@/use-cases/@factories/make-createuser-usecase"
+import { makeCreateUserUseCase } from "@/use-cases/@factories/make-user-usecases"
 import { FastifyReply, FastifyRequest } from "fastify"
 import { z } from "zod"
 

@@ -1,5 +1,5 @@
 import fastify from "fastify";
-import { userRoutes } from "./http/routes/user";
+import { userRoutes } from "./http/controllers/routes";
 import { ZodError } from "zod";
 import { UserAlreadyExistsError } from "./use-cases/@errors/user-already-exists-error";
 import { env } from "./env";
