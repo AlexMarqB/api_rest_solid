@@ -4,8 +4,13 @@ import { ZodError } from "zod";
 import { UserAlreadyExistsError } from "./use-cases/@errors/user-already-exists-error";
 import { env } from "./env";
 import { InvalidCredentialsError } from "./use-cases/@errors/invalid-credentials-error";
+import fastifyJwt from "@fastify/jwt";
 
 const app = fastify()
+
+app.register(fastifyJwt, {
+    secret: env.JWT_SECRET
+})
 
 app.register(userRoutes)
 

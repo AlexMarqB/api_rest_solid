@@ -127,6 +127,8 @@ Caso o serviço não seja web a autenticação pode ser diferente
 
 # JWT - Hash e hash inverso / Code e decode - Foco em serviços web
 
+npm i @fastify/jwt
+
 * stateless: não armazenado em nenhuma estrutura de persistencia de dados (bd, arquivo, variavel)
 
 Usuário faz login - email e senha -> é gerado um token stateless unico e não modificavel                              

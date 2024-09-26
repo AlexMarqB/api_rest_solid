@@ -1,23 +1,30 @@
-import { makeAuthenticateUserUseCase } from "@/use-cases/@factories/make-authenticate-usecases"
-import { FastifyReply, FastifyRequest } from "fastify"
-import { z } from "zod"
+import { makeAuthenticateUserUseCase } from "@/use-cases/@factories/make-authenticate-usecases";
+import { FastifyReply, FastifyRequest } from "fastify";
+import { z } from "zod";
 
-export async function authenticateUserController(req: FastifyRequest, rep: FastifyReply) {
-    const authenticateUserSchema = z.object({
-        email: z.string().email(),
-        password: z.string().min(6),
-    })
+export async function authenticateUserController(
+	req: FastifyRequest,
+	rep: FastifyReply
+) {
+	const authenticateUserSchema = z.object({
+		email: z.string().email(),
+		password: z.string().min(6),
+	});
 
-    const { email, password } = authenticateUserSchema.parse(req.body)
+	const { email, password } = authenticateUserSchema.parse(req.body);
 
-    try {
-        const authUserUseCase = makeAuthenticateUserUseCase()
+	try {
+		const authUserUseCase = makeAuthenticateUserUseCase();
 
-        await authUserUseCase.execute({ email, password })
-    } catch (error) {
+		const { user } = await authUserUseCase.execute({ email, password });
 
-        throw error
-    }
+		const token = await rep.jwtSign({}, {
+			sign: { sub: user.id },
+		});
+        
+        return rep.status(200).send({token});
+	} catch (error) {
+		throw error;
+	}
 
-    return rep.status(200).send()
 }
