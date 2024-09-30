@@ -3,7 +3,7 @@ import { authenticateUserController } from "@/http/controllers/user/authenticate
 import { createUserController } from "@/http/controllers/user/create-user-controller";
 import { getUserProfileController } from "@/http/controllers/user/get-user-profile-controller";
 import { FastifyInstance } from "fastify";
-import { verifyJwt } from "../middlewares/verify-jwt";
+import { verifyJwt } from "../../middlewares/verify-jwt";
 
 export async function userRoutes(app: FastifyInstance) {
     app.post('/users', createUserController)

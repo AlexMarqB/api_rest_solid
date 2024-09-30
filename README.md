@@ -22,6 +22,10 @@ Para verificar o quanto os testes cobriram a aplicação
 
 - npm run test:coverage
 
+Para rodar os testes e2e
+
+- npm run test:e2e
+
 # App
 
 # Gympass style app => 

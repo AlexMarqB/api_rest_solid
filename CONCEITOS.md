@@ -92,6 +92,16 @@ Em média cada regra de negócio deve se tornar um teste
 
 Cada teste deve ser executado em um ambiente totalmente limpo e sem registros anteriores
 
+E2E => Irá testar como o usuário utilizaria a aplicação desde o request até as alterações no banco de dados (de teste)
+
+Criar o banco executar o teste e deletar o banco leva muito tempo
+
+1,5 (segundos por teste) * 2000 (n de testes e2e) * 60 (segundos em 1 min) == 50 min de teste
+
+## Test Enviroment - vitest
+
+Conseguimos mudar o ambiente para apps especificos. 
+
 ## Autenticação
 
 Iremos sempre iniciar a lógica de autenticação ou qualquer lógica pelo caso de uso, porque ele é o nivel mais baixo da aplicação e já permite
@@ -137,3 +147,13 @@ Back-end: Utiliza uma PALAVRA-CHAVE (string) pode ser qualquer coisa literalment
 ex: askfjbsdf9sdfys8f3p03843943dasjdkasdahad
 
 Email/senha -> header.payload.sign
+
+## Package.json e NPM 
+
+Qualquer script com "pre" ou "post" como prefixo será lido antes ou depois do respectivo comando seguinte
+ex:
+"start" : "...."
+"prestart" : "...."
+
+o comando "prestart" irá ser executando automaticamente antes do comando "start" se chamarmos o 
+npm run start

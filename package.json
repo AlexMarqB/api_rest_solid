@@ -7,8 +7,10 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsup src --out-dir build",
-    "test": "vitest run",
-    "test:watch": "vitest",
+    "test": "vitest run --dir src/use-cases",
+    "test:e2e": "vitest run --dir src/http",
+    "pretest:e2e": "cd prisma/vitest-environment-prisma && npm link && cd ../../ && npm link vitest-environment-prisma",
+    "test:watch": "vitest run --dir src/use-cases",
     "test:coverage": "vitest --coverage",
     "test:ui": "vitest --ui"
   },
