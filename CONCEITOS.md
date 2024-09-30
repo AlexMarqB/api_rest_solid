@@ -98,9 +98,13 @@ Criar o banco executar o teste e deletar o banco leva muito tempo
 
 1,5 (segundos por teste) * 2000 (n de testes e2e) * 60 (segundos em 1 min) == 50 min de teste
 
-## Test Enviroment - vitest
+Utilizaremos a lib supertest para executar requisições sem subir a aplicação
+
+## Test Enviroment - prisma + vitest + supertest
 
 Conseguimos mudar o ambiente para apps especificos. 
+
+A vantagem de utilizarmos o PostgreSQL é que ele possui uma divisão própria divida por "schemas" que são ambientes isolados
 
 ## Autenticação
 
