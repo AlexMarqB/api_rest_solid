@@ -17,10 +17,14 @@ export class PrismaGymRepository implements GymsRepository {
 
         return gym
     }
+
     async searchMany(query: string, page: number) {
         const gyms = await prisma.gym.findMany({
             where: {
-                title: query
+                title: {
+                    contains: query,
+                    mode: 'insensitive'
+                }
             },
             take: 20,
             skip: (page - 1) * 20

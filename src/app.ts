@@ -5,6 +5,7 @@ import { UserAlreadyExistsError } from "./use-cases/@errors/user-already-exists-
 import { env } from "./env";
 import { InvalidCredentialsError } from "./use-cases/@errors/invalid-credentials-error";
 import fastifyJwt from "@fastify/jwt";
+import { gymRoutes } from "./http/controllers/gym/routes";
 
 const app = fastify()
 
@@ -14,14 +15,13 @@ app.register(fastifyJwt, {
 
 app.register(userRoutes)
 
+app.register(gymRoutes)
+
 app.setErrorHandler(async (error, _, rep) => {
     if (error instanceof ZodError) {
         return rep.status(400).send({ message: "Validation error.", issues: error.format() })
     }
 
-    if(error instanceof UserAlreadyExistsError) {
-        return rep.status(409).send({ message: error.message })
-    }
 
     if (error instanceof InvalidCredentialsError) {
         return rep.status(400).send({ message: error.message})

@@ -98,6 +98,8 @@ Criar o banco executar o teste e deletar o banco leva muito tempo
 
 1,5 (segundos por teste) * 2000 (n de testes e2e) * 60 (segundos em 1 min) == 50 min de teste
 
+Não é indicado criar testes e2e para falhas por conta do tempo de execução
+
 Utilizaremos a lib supertest para executar requisições sem subir a aplicação
 
 ## Test Enviroment - prisma + vitest + supertest
