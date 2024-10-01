@@ -13,12 +13,7 @@ describe("GetNearbyGymsController E2E Test", async () => {
     })
 
     it("Should be able to get nearby gyms", async () => {
-        const myLocation = {
-            longitude: -20.5362031,
-            latitude: -47.394482
-        }
-
-        const { token } = await createAndAuthenticateUser(app)
+        const { token } = await createAndAuthenticateUser(app, true)
 
         await request(app.server)
         .post('/gyms')

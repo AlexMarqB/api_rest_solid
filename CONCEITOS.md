@@ -164,6 +164,14 @@ Refresh Token -> Podemos utilizar um segundo token para renovar a validade do to
 
 Iremos armazenar o refresh token nos cookies do navegador utilizando @fastify/cookie
 
+## RBAC - Role Based Authorization Controll
+
+Determinar permissões atráves de uma role/função
+
+- Admin == full
+- Gestor == 10 de 11 rotas
+- User == user routes
+
 ## Package.json e NPM 
 
 Qualquer script com "pre" ou "post" como prefixo será lido antes ou depois do respectivo comando seguinte

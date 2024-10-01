@@ -6,18 +6,20 @@ export async function refreshTokenController(
 ) {
 	await req.jwtVerify({ onlyCookie: true }); // verifica se o user está autenticado mas não vai buscar os dados no Header do request e sim no cookie
 
+	const { sub, role } = req.user;
+
 	const token = await rep.jwtSign(
-		{},
+		{ role },
 		{
-			sign: { sub: req.user.sub },
+			sign: { sub },
 		}
 	);
 
 	const refreshToken = await rep.jwtSign(
-		{},
+		{ role },
 		{
 			sign: {
-				sub: req.user.sub,
+				sub,
 				expiresIn: "7d", // se o user não acessar o app em 7 dias, ele terá que logar novamente
 			},
 		}

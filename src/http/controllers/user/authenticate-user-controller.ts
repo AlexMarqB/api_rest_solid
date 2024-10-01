@@ -18,11 +18,15 @@ export async function authenticateUserController(
 
 		const { user } = await authUserUseCase.execute({ email, password });
 
-		const token = await rep.jwtSign({}, {
+		const token = await rep.jwtSign({
+			role: user.role,
+		}, {
 			sign: { sub: user.id },
 		});
 
-		const refreshToken = await rep.jwtSign({}, {
+		const refreshToken = await rep.jwtSign({
+			role: user.role,
+		}, {
 			sign: { 
 				sub: user.id,
 				expiresIn: '7d' // se o user não acessar o app em 7 dias, ele terá que logar novamente
