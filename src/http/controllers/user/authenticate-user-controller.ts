@@ -21,8 +21,23 @@ export async function authenticateUserController(
 		const token = await rep.jwtSign({}, {
 			sign: { sub: user.id },
 		});
+
+		const refreshToken = await rep.jwtSign({}, {
+			sign: { 
+				sub: user.id,
+				expiresIn: '7d' // se o user não acessar o app em 7 dias, ele terá que logar novamente
+			 },
+		});
         
-        return rep.status(200).send({token});
+        return rep
+		.setCookie("refreshToken", refreshToken, {
+			path: "/", //quais rotas terão acesso ao cookie
+			secure: true, // só aceita requisições https
+			sameSite: true, // só aceita requisições do mesmo site
+			httpOnly: true, // só aceita requisições da api não fica salvo no browser
+		})
+		.status(200)
+		.send({token});
 	} catch (error) {
 		throw error;
 	}

@@ -162,6 +162,8 @@ realizar o login novamente
 
 Refresh Token -> Podemos utilizar um segundo token para renovar a validade do token principal toda vez que o usuário acessa o nosso sistema
 
+Iremos armazenar o refresh token nos cookies do navegador utilizando @fastify/cookie
+
 ## Package.json e NPM 
 
 Qualquer script com "pre" ou "post" como prefixo será lido antes ou depois do respectivo comando seguinte

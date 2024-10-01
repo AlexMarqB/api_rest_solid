@@ -1,18 +1,27 @@
 import fastify from "fastify";
 import { userRoutes } from "./http/controllers/user/routes";
 import { ZodError } from "zod";
-import { UserAlreadyExistsError } from "./use-cases/@errors/user-already-exists-error";
 import { env } from "./env";
 import { InvalidCredentialsError } from "./use-cases/@errors/invalid-credentials-error";
 import fastifyJwt from "@fastify/jwt";
+import fastifyCookie from "@fastify/cookie";
 import { gymRoutes } from "./http/controllers/gym/routes";
 import { checkInSRoutes } from "./http/controllers/check-ins/routes";
 
 const app = fastify()
 
 app.register(fastifyJwt, {
-    secret: env.JWT_SECRET
+    secret: env.JWT_SECRET,
+    cookie: {
+        cookieName: "refreshToken",
+        signed: false
+    },
+    sign: {
+        expiresIn: "10m" // a cada 10 minutos verifico se o user tem o refreshToken para renovar o token principal
+    }
 })
+
+app.register(fastifyCookie)
 
 app.register(userRoutes)
 
