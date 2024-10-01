@@ -6,6 +6,7 @@ import { env } from "./env";
 import { InvalidCredentialsError } from "./use-cases/@errors/invalid-credentials-error";
 import fastifyJwt from "@fastify/jwt";
 import { gymRoutes } from "./http/controllers/gym/routes";
+import { checkInSRoutes } from "./http/controllers/check-ins/routes";
 
 const app = fastify()
 
@@ -16,6 +17,8 @@ app.register(fastifyJwt, {
 app.register(userRoutes)
 
 app.register(gymRoutes)
+
+app.register(checkInSRoutes)
 
 app.setErrorHandler(async (error, _, rep) => {
     if (error instanceof ZodError) {

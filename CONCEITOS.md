@@ -154,6 +154,14 @@ ex: askfjbsdf9sdfys8f3p03843943dasjdkasdahad
 
 Email/senha -> header.payload.sign
 
+Como o token é stateless não fica em banco de dados precisamos de uma forma de invalidar aquele token
+caso o usuário faça logout ou fique muito tempo sem acessar precisamos tornar o token invalido para garantir segurança
+
+Marcação de data -> normalmente utilizamos a data de criação do token até X dias após isso o token é valido, caso tenha expirado é preciso
+realizar o login novamente
+
+Refresh Token -> Podemos utilizar um segundo token para renovar a validade do token principal toda vez que o usuário acessa o nosso sistema
+
 ## Package.json e NPM 
 
 Qualquer script com "pre" ou "post" como prefixo será lido antes ou depois do respectivo comando seguinte

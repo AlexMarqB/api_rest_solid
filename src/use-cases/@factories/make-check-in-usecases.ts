@@ -14,7 +14,7 @@ export function makeCreateCheckInUseCase() {
     return createCheckInUseCase;
 }
 
-export function makeGetUserCheckInHistoryUseCasse () {
+export function makeGetUserCheckInHistoryUseCase () {
     const getUserCheckInHistoryUseCase = new GetUserCheckInsHistoryUseCase(checkInRepository);
 
     return getUserCheckInHistoryUseCase;
