@@ -1,4 +1,3 @@
-import { prisma } from "@/lib/prisma"
 import { GymsRepository } from "@/repositories/gyms-repository"
 import { Gym } from "@prisma/client"
 
@@ -24,16 +23,6 @@ export class CreateGymUseCase {
         latitude,
         longitude
     }: CreateGymUseCaseRequest): Promise<CreateGymUseCaseResponse> {
-        const gymWithSameName = await prisma.gym.findFirst({
-            where: {
-                title
-            }
-        })
-
-        if (gymWithSameName) {
-            throw new Error()
-        }
-
         const gym = await this.gymsRepository.create({
             title,
             description,
