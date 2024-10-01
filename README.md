@@ -64,8 +64,8 @@ Principios do SOLID
 - [X] O usuário não pode fazer 2 check-ins no mesmo dia;
 - [X] O usuário não pode fazer check-in se não estiver perto (100m) da academia;
 - [X] O check-in só pode ser validado até 20 minutos após criado;
-- [ ] O check-in só pode ser validado por administradores;
-- [ ] A academia só pode ser cadastrada por administradores;
+- [X] O check-in só pode ser validado por administradores;
+- [X] A academia só pode ser cadastrada por administradores;
 
 ## RNFs ( Requisitos não funcionais )
 - Não partem do cliente, são requisitos tecnicos e mais a fundo do que funcionalidades
@@ -74,4 +74,4 @@ Principios do SOLID
 - [X] A senha do usuário precisa estar criptografada;
 - [X] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL;
 - [X] Todas as listas de dados precisam estar páginados em 20 itens por página;
-- [ ] O usuário deve ser identificado por um JWT (JSON Web Token);
+- [X] O usuário deve ser identificado por um JWT (JSON Web Token);
