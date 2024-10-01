@@ -181,3 +181,24 @@ ex:
 
 o comando "prestart" irá ser executando automaticamente antes do comando "start" se chamarmos o 
 npm run start
+
+## CI/CD
+
+# CI => Continuos Integration
+
+Estratégias, workflows e ferramentas para garantir que o código possa receber updates de forma continua com testes e validações
+Code review (manual e automatico), segurança do código, coverage de testes
+
+Apenas para receber código novo
+
+Ex:
+- Github Actions
+- Gitlab CI
+- Travis CI
+
+Github actions => .github/workflows
+github actions marketplace
+
+# CD => Continuos Deployment
+
+Faz deploy automaticamente ao receber novo código
